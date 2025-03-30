@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZenoFractal | Futuristic Landing Page</title>
+    <style>
+        body {
+            background: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            overflow: hidden;
+        }
+        h1 {
+            font-size: 3rem;
+            margin-top: 50px;
+            text-shadow: 0 0 10px cyan;
+        }
+        p {
+            font-size: 1.5rem;
+            text-shadow: 0 0 5px cyan;
+        }
+        .trail {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: cyan;
+            border-radius: 50%;
+            box-shadow: 0 0 10px cyan, 0 0 20px cyan;
+            pointer-events: none;
+            animation: fadeOut 0.5s linear forwards;
+        }
+        @keyframes fadeOut {
+            from { opacity: 1; transform: scale(1); }
+            to { opacity: 0; transform: scale(0.5); }
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to ZenoFractal</h1>
+    <p>The Future of Innovation</p>
+    <script>
+        document.addEventListener("mousemove", (e) => {
+            let trail = document.createElement("div");
+            trail.classList.add("trail");
+            document.body.appendChild(trail);
+            
+            trail.style.left = `${e.pageX}px`;
+            trail.style.top = `${e.pageY}px`;
+            
+            setTimeout(() => {
+                trail.remove();
+            }, 500);
+        });
+    </script>
+</body>
+</html>
